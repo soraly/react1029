@@ -1,0 +1,51 @@
+@import '../../App.scss';
+
+.btnTest {
+  @include btn (200px, 10px);
+  &:hover {
+    @include btn (200px, 10px, #fff, skyblue, 14px, 4px, 1px solid skyblue)
+  }
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap; //简化为 flex-flow: colum nowrap
+}
+.flex-ul {
+    display: flex;
+    flex-flow: column nowrap;
+    li {
+        width: 400px;
+        padding: 15px 10px;
+        color: #fff;
+        background-color: #9b9b9b;
+        font-size: 14px;
+        border-radius: 0px;
+        border: 1px solid #9b9b9b;
+        cursor: pointer;
+        outline: none;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}
+
+
+
+
+  .item-enter {
+    opacity: 0;
+  }
+  .item-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  .item-exit {
+    opacity: 1;
+  }
+  .item-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+  }

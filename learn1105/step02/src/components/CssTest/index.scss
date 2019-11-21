@@ -1,0 +1,12 @@
+@import '../../App.scss';
+
+.btnTest {
+  @include btn (200px, 10px);
+  &:hover {
+    @include btn (200px, 10px, #fff, skyblue, 14px, 4px, 1px solid skyblue)
+  }
+}
+
+.btnTest-small {
+  @include btn($width: 100px,$font-size: 12px)
+}

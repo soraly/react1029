@@ -1,0 +1,17 @@
+.title {
+    color: green;
+  }
+  .bigImg {
+      opacity: 0;
+    width: 750px;
+    height: 420px;
+    background: url("../../images/big.png");
+    background-size: 100% 100%;
+  }
+  .smallImg {
+    width: 100px;
+    height: 100px;
+    background: url("../../images/small.png");
+    background-size: 100% 100%;
+  }
+  
