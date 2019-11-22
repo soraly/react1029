@@ -16,8 +16,18 @@ class Clock extends React.Component {
     tick() {
         this.setState({ time: new Date() })
     }
+    handleClick(e, name) {
+        console.log('clicked', this.state.time, e, name)
+    }
+    handleClickH2(name,e){
+        console.log(name,e,'e')
+    }
     render() {
-        return <div id="clock">现在时间是 {this.state.time.toLocaleTimeString()}</div>
+        return (
+            <div onClick={(e) => this.handleClick(e, 'xiang')}>
+                <h2 onClick={this.handleClickH2.bind(this,'lzx')}>hello,time</h2>
+                现在时间是 {this.state.time.toLocaleTimeString()}
+            </div>)
     }
 }
 
