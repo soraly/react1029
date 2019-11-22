@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 import './styles/app.scss';
-import { Animation, CssTest,BigComponent,CommonTitle } from './components'
+import { Animation, CssTest,BigComponent,CommonTitle,Clock } from './components'
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       <BigComponent />
       <CommonTitle title="Animation示例，点击列表删除" />
       <Animation></Animation>
+      <Clock></Clock>
       <br/><br/><br/><br/><br/><br/><br/>
     </div>
   );
