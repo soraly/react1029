@@ -2,7 +2,7 @@ import React from 'react';
 
 
 class App extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.incrementIfOdd = this.incrementIfOdd.bind(this);
     this.incrementAsync = this.incrementAsync.bind(this);
@@ -18,9 +18,9 @@ class App extends React.Component {
     value % 2 !== 0 && onIncrement();
   }
   incrementAsync() {
-    setTimeout(()=>{
+    setTimeout(() => {
       this.props.onIncrement();
-    },1500)
+    }, 1500)
   }
   render() {
     const { value, onIncrement, onDecrement } = this.props

@@ -12,8 +12,8 @@ const store = createStore(reducefn);
 const render = () => ReactDOM.render(
     <App store={store}
         value={store.getState()}
-        onIncrement={()=>store.dispatch({ type: 'INCREMENT' })}
-        onDecrement={()=>store.dispatch({ type: 'DECREMENT' })}
+        onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
+        onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
     />
     , document.getElementById('root'));
 

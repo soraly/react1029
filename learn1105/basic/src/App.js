@@ -1,5 +1,23 @@
 import React from 'react';
 
+class Add extends React.Component {
+  constructor(){
+    super();
+  }
+  componentDidMount(){
+    console.log(this.props.onIncrement)
+  }
+  render(){
+    return (
+      <div>
+        <span>total count is :{this.props.time}</span>{'   '}
+        <button onClick={()=>this.props.onIncrement()}> + </button>{' '}
+        <button onClick={()=>this.props.onDecrease()}> — </button>
+      </div>
+    )
+  }
+}
+
 class HeroList extends React.Component {
   constructor() {
     super();
@@ -49,9 +67,10 @@ class Clock extends React.Component {
   }
 }
 
-function App() {
+function App(props) {
   return (
     <div className="App">
+      <Add onIncrement={props.onIncrement} onDecrease={props.onDecrease} time={props.time}></Add>
       <h2>hello, world</h2>
       <HeroList />
       <Clock increment='1' myColor="red" />
