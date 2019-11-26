@@ -1,5 +1,6 @@
 import React from 'react';
 import CommonForm from './composition'
+import Product from './thinkReact'
 
 class MyForm extends React.Component {
   constructor() {
@@ -122,10 +123,12 @@ class Clock extends React.Component {
 function Bruce() {
   return <li>i am Bruce</li>
 }
+
 function App(props) {
   var heros = ['spiderman', 'superman', 'X', 'robot']
   return (
-    <div className="App">
+    <div className="App" style={{margin: '10px'}}>
+      <Product></Product>
       <Add onIncrement={props.onIncrement} onDecrease={props.onDecrease} time={props.time}></Add>
       <h2>hello, world</h2>
       <HeroList />

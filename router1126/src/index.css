@@ -11,13 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-.control label {
-  display: inline-block;
-  margin-right: 10px;
-  width: 100px;
-  text-align: right;
-}
-.red {
-  color: red
-}
