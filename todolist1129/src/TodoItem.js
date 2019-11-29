@@ -13,7 +13,7 @@ class TodoItem extends React.Component {
                     <a onClick={this.handleDelete.bind(this, index)} className="circle">X</a>
                 </li>
             </React.Fragment>
-            
+
         )
     }
 }

@@ -5,20 +5,16 @@ import TodoItem from './TodoItem'
 class App extends React.Component {
   constructor() {
     super();
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleBtnClick = this.handleBtnClick.bind(this);
-    this.handleItemDelete = this.handleItemDelete.bind(this);
-    this.getTodoItem = this.getTodoItem.bind(this);
     this.state = {
-      list: [ ],
+      list: [],
       inputVal: ''
     }
   }
-  handleInputChange(event) {
+  handleInputChange = (event) => {
     const value = event.target.value;
     this.setState(() => ({ inputVal: value })); //传入函数表示异步
   }
-  handleBtnClick() {
+  handleBtnClick = () => {
     this.setState((preState) => {
       const list = [...preState.list, preState.inputVal];
       return {
@@ -27,12 +23,12 @@ class App extends React.Component {
       }
     })
   }
-  handleItemDelete(index) {
+  handleItemDelete = (index) => {
     const list = [...this.state.list];
     list.splice(index, 1);
     this.setState({ list });
   }
-  getTodoItem(){
+  getTodoItem = () => {
     return this.state.list.map((item, index) => (
       <TodoItem
         deleteItem={this.handleItemDelete.bind(this)}
@@ -42,12 +38,13 @@ class App extends React.Component {
     ))
   }
   render() {
+    const { inputVal } = this.state;
     return (
       <div className='app'>
         请输入内容:{' '}
         <input
           onChange={this.handleInputChange}
-          value={this.state.inputVal}
+          value={inputVal}
           type="text"
         />{' '} <button onClick={this.handleBtnClick}>提交</button>
         <ul>
