@@ -7,8 +7,14 @@ class App extends React.Component {
     super();
     this.state = {
       list: [],
-      inputVal: ''
+      inputVal: '',
+      tip: '请输入内容：'
     }
+  }
+  componentDidMount() {
+    setTimeout(()=>{
+      this.setState({tip: '请快点输入内容：'})
+    },2000) 
   }
   handleInputChange = (event) => {
     const value = event.target.value;
@@ -19,7 +25,7 @@ class App extends React.Component {
       const list = [...preState.list, preState.inputVal];
       return {
         list,
-        inputVal: ''
+        inputVal: '',
       }
     })
   }
@@ -38,10 +44,11 @@ class App extends React.Component {
     ))
   }
   render() {
+    console.log('parent.render')
     const { inputVal } = this.state;
     return (
       <div className='app'>
-        请输入内容:{' '}
+        {this.state.tip}{' '}
         <input
           onChange={this.handleInputChange}
           value={inputVal}
@@ -54,5 +61,6 @@ class App extends React.Component {
     );
   }
 }
+
 
 export default App;
