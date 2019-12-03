@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css'
 import TodoItem from './TodoItem'
+import Animation from './Animation'
 
 class App extends React.Component {
   constructor() {
@@ -83,6 +84,7 @@ componentDidUpdate(){
         <ul ref={ul=>this.myUl = ul}>
           {this.getTodoItem()}
         </ul>
+        <Animation></Animation>
       </div>
     );
   }

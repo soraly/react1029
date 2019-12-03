@@ -21,3 +21,45 @@ code {
   border-radius: 50%;
   cursor: pointer;
 }
+.show {
+  opacity: 1;
+  transition: all 1s ease-in;
+}
+.show-animation {
+  animation: MyShow 1s ease-in forwards;
+}
+.hide-animation {
+  animation: MyHide 1s ease-in forwards;
+}
+@keyframes MyShow{
+  0%{
+    opacity: 0;
+    color: #ddd;
+  }
+  50%{
+    opacity: 0.6;
+    color: rgb(151, 83, 83);
+  }
+  100%{
+    opacity: 1;
+    color: rgb(247, 9, 9);
+  }
+}
+@keyframes MyHide{
+  0%{
+    opacity: 1;
+    color: rgb(247, 9, 9);
+  }
+  50%{
+    opacity: 0.6;
+    color: rgb(151, 83, 83);
+  }
+  100%{
+    opacity: 0;
+    color: #ddd;
+  }
+}
+.hide {
+  opacity: 0;
+  transition: all 1s ease-in;
+}
