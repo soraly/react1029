@@ -20,10 +20,10 @@ class TodoItem extends React.Component {
         console.log('item will unmount');
     }
     changeProps(index) {
-        this.props.onChangeProps && this.props.onChangeProps(index)
+        this.props.onChangeProps && this.props.onChangeProps(index);
     }
     render() {
-        const { item, index, tip } = this.props
+        const { item, index, tip } = this.props;
         return (
             <React.Fragment>
                 <li>
