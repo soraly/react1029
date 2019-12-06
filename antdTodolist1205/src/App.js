@@ -44,7 +44,6 @@ class App extends React.Component {
           type="primary"
           onClick={this.handleBtnClick} >submit</Button>
         <ListCom list={this.state.listContent} />
-
       </div>
     )
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css'
 import TodoItem from './TodoItem'
 import Animation from './Animation'
+import FilterableProductTable from './thinkReact_redux'
 
 class App extends React.Component {
   constructor() {
@@ -85,6 +86,7 @@ componentDidUpdate(){
           {this.getTodoItem()}
         </ul>
         <Animation></Animation>
+        <FilterableProductTable></FilterableProductTable>
       </div>
     );
   }
