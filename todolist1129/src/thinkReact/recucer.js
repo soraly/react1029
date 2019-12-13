@@ -13,8 +13,8 @@ export default (state = defaultState, action) => {
         case CHECKBOX_CHANGE:
             newState.inStockOnly = action.value;
             break;
-        default: 
-            return newState    
+        default:
+            return newState
     }
     return newState
 }
