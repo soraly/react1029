@@ -16,6 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" style={{ margin: '10px' }}>
+      <div>my name is {this.state.name}</div>
         <SearchBar inputVal={this.state.inputVal}></SearchBar>
         <List list={this.state.listData}></List>
       </div>

@@ -1,3 +1,5 @@
 export const INPUT_CHANGE = 'input_change'
 export const SUBMIT = 'submit'
 export const DELETE = 'delete'
+export const INIT_LIST_ACTION = 'init_list_action'
+export const USER_INFO_ACTION = 'user_info_action'
