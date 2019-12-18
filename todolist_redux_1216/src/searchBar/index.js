@@ -2,7 +2,7 @@ import React from 'react'
 import { Input, Button } from 'antd'
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import store from '../store'
-import { getInputChangeAction, getSubmitAction, getListData, getUserInfo } from '../createActions'
+import { getInputChangeAction, getSubmitAction, getListData, getUserInfo,userInfoRequestAction } from '../createActions'
 import axios from 'axios'
 
 class SearchBar extends React.Component {
@@ -16,11 +16,8 @@ class SearchBar extends React.Component {
         store.dispatch(action);
         const user_action= getUserInfo();
         store.dispatch(user_action);
-        store.dispatch({type: "GET_List_DATA"})
-        async function test(){
-            const res = await axios.get('http://localhost:8989/userInfo');
-            console.log(res);
-        }
+        const action2 = userInfoRequestAction();
+        store.dispatch(action2)
         
     }
     handleInputChange(event) {

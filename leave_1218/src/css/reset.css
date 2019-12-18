@@ -1,0 +1,156 @@
+@charset "utf-8";
+
+/*清零*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+.pull-right {
+    float: right;
+}
+
+h1, h2, h3, h4, h5, h6, button, input, select, textarea {
+    font-weight: normal;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei',Tahoma,Arial,sans-serif!important;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, button, input, select, textarea {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+i, cite, em, var, dfn, address {
+    font-style: normal;
+}
+
+body {
+    font: 14px "方正兰亭细黑简体", "微软雅黑", "宋体", Arial;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:active, a:focus {
+    outline: none;
+}
+
+b {
+    font-weight: normal;
+}
+
+input, button {
+    border: none;
+    outline: none;
+}
+
+input:not([type="radio"]) {
+    appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -moz-appearance: none;
+}
+
+button:active {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+}
+
+textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    resize: none;
+}
+
+input {
+    border-radius: 0;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+a {
+    color: #232323;
+}
+
+button {
+    background: none;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:before {
+    display: table;
+    content: " ";
+}
+
+.clearfix:after {
+    height: 0;
+    clear: both;
+    display: table;
+    content: " ";
+}
+
+.text-muted{
+    color:#888;
+    padding: 0 10px 15px;
+    background: #fff;
+}
+
+/* 提示框  */
+.mNotice {
+    top: 35%;
+    left: 50%;
+    width: 280px;
+    text-align: center;
+    position: fixed;
+    margin-left: -140px;
+    padding: 10px 7px;
+    z-index: 1200;
+    word-wrap:break-word;
+    opacity: .5;
+    background: #000;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+.mNotice span {
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 7px;
+    color: #fff;
+}

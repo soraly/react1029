@@ -1,0 +1,8 @@
+export const INPUT_CHANGE = 'INPUT_CHANGE'
+export const BTN_SUBMIT = 'BTN_SUBMIT'
+export const GET_USER = 'GET_USER'
+export const GET_USER_SUCCESS = 'GET_USER_SUCCESS'
+export const GET_USER_FAIL = 'GET_USER_FAIL'
+export const GET_SCHOOL = 'GET_SCHOOL'
+export const GET_SCHOOL_SUCCESS = 'GET_SCHOOL_SUCCESS'
+export const GET_SCHOOL_FAIL = 'GET_SCHOOL_FAIL'

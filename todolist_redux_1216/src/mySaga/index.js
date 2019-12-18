@@ -1,12 +1,15 @@
-import {call, put,takeEvery,takeLatest} from 'redux-saga/effects'
+import {put,takeEvery} from 'redux-saga/effects'
+import {USER_INFO_REQUESTED} from '../actionTypes';
+import {userInfoSuccessAction} from '../createActions';
 import axios from 'axios'
 
-function* getListData(params) {
-    const res = yield axios.get('http://localhost:8989/userInfo');
-    yield put({type: "GET_DATA_SUCCESS",data:res.data})
+function* getUserInfo(params) {
+    const res = yield axios.get('http://m.igrow.cn/api/1.1b/yo/absent/type/list?schoolid=407');
+    const action = userInfoSuccessAction(res.data);
+    yield put(action)
 }
 
 function* lzxSaga(params) {
-    yield takeEvery("GET_List_DATA", getListData);
+    yield takeEvery(USER_INFO_REQUESTED, getUserInfo);
 }
 export default lzxSaga

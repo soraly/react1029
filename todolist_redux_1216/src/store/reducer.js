@@ -1,4 +1,5 @@
-import { INPUT_CHANGE, SUBMIT, DELETE, INIT_LIST_ACTION, USER_INFO_ACTION } from '../actionTypes'
+import { INPUT_CHANGE, SUBMIT, DELETE, INIT_LIST_ACTION, USER_INFO_ACTION,
+    USER_INFO_SUCCEEDED } from '../actionTypes'
 const initState = {
     inputVal: '',
     name: '',
@@ -23,7 +24,7 @@ export default (state = initState, action) => {
         case USER_INFO_ACTION:
             newState.name = action.data.name;
             break;
-        case "GET_DATA_SUCCESS":
+        case USER_INFO_SUCCEEDED:
             console.log(action.data,'actionactionaction')
             break;
     }
