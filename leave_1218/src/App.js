@@ -14,7 +14,7 @@ class App extends React.Component {
   handleStoreChange(){
     this.setState(store.getState())
   }
-  componentWillMount(){
+  componentDidMount(){
     const userAction = getUserAction();
     store.dispatch(userAction)
     const schoolAction = getSchoolAction();
@@ -25,6 +25,7 @@ class App extends React.Component {
     return (
       <div className="App" id="record">
         <div className="tab-content ">
+          <div>username: {this.state.username}</div>
           <SearchBar value={this.state.inputVal}></SearchBar>
           <LeaveRecords></LeaveRecords>
         </div>

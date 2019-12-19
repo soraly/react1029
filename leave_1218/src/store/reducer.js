@@ -1,15 +1,22 @@
-import { INPUT_CHANGE, BTN_SUBMIT } from './actionTypes'
+import * as actions from './actionTypes'
 const initState = {
-    inputVal: ''
+    inputVal: '',
+    username: ''
 }
 export default (state = initState, action) => {
     let newState = JSON.parse(JSON.stringify(state));
     switch (action.type) {
-        case INPUT_CHANGE:
+        case actions.INPUT_CHANGE:
             newState.inputVal = action.value
             break;
-        case BTN_SUBMIT:
+        case actions.BTN_SUBMIT:
             newState.inputVal = action.value
+            break;
+        case actions.GET_USER_SUCCESS:
+            newState.username = action.data.data.realname;
+            break;
+        case actions.GET_USER_FAIL:
+            newState.username = '未命名';
             break;
     }
     return newState
