@@ -43,3 +43,33 @@ reducer输出一个纯函数，指给固定的输入，就有固定的输出，�
 ### redux中间件
 中间件存在于action和store之间
 redux_thunk就是升级了dispatch方法，本来dispacth只能接收一个对象，用了thunk后不仅可以接收对象，还可以接收一个函数并去执行他
+
+### 测试
+1. mocha是经典的测试框架，根目录下必须有test文件夹，里面的文件名可以任意自定义。用mocha运行测试，测试代码格式如下：
+```
+   const sum = function () {
+    return [...arguments].reduce((base, cur) => base + cur, 0)
+}
+
+describe('test num add',()=>{
+    it('should equal 10 when arguments is 1,2,34',function(){
+        sum(1,2,3,4).should.equal(10);
+    })
+    it('should equal 22 when arguments is 11,11',function(){
+        sum(11,11).should.equal(22);
+    })
+})
+```
+2. jest是facebook出的测试框架，对react友好,会自动搜寻项目中的xx.test.js or xx.spec.js文件,或者__tests__文件夹下面的js文件，用jest运行测试。
+```
+const sum = require('./sum');
+
+test('add 1 and 2 is 3',()=>{
+    expect(sum(1,2)).toBe(3);
+})
+test('ajax data name is xiang',()=>{
+    return axios.get('http://localhost:8989/userInfo').then(res=>{
+        expect(res.data.name).toBe('xiang');
+    })
+})
+```

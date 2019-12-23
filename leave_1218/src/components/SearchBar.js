@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {getInputChangeAction} from '../store/actionCreator'
 import store from '../store/store';
-
+console.log(store.getState(),'state')
 export default class SearchBar extends Component {
     handleInputChange(event){
         const action = getInputChangeAction(event.target.value);
