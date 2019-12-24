@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
 import { Icon } from 'antd'
-import store from '../store'
 import {getDeleteAction} from '../createActions'
+import {connect} from 'react-redux'
 
-export default class ListItem extends Component {
-    handleIconClick() {
-        const action = getDeleteAction(this.props.index)
-        store.dispatch(action)
-    }
+const contexa = React.createContext();
+const contexb = React.createContext();
+console.log(contexa==contexb,'aa')
+
+ class ListItem extends Component {
     render() {
         return (
             <li>
-                {this.props.value} <Icon onClick={this.handleIconClick.bind(this, this.props.index)} id="icon" type="close-circle" />
+                {this.props.value} <Icon onClick={this.props.getDeleteAction.bind(this, this.props.index)} id="icon" type="close-circle" />
             </li>
         )
     }
 }
+
+const mapDispatchToProps = {
+    getDeleteAction
+}
+
+export default connect(null,mapDispatchToProps)(ListItem)

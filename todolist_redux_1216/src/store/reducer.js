@@ -2,7 +2,7 @@ import { INPUT_CHANGE, SUBMIT, DELETE, INIT_LIST_ACTION, USER_INFO_ACTION,
     USER_INFO_SUCCEEDED } from '../actionTypes'
 const initState = {
     inputVal: '',
-    name: '',
+    name: 'xiang',
     listData: []
 }
 export default (state = initState, action) => {

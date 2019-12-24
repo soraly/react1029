@@ -1,9 +1,10 @@
 import React from 'react'
 import ListItem from '../listItem';
+import {connect} from 'react-redux'
 
 class List extends React.Component {
     render(){
-        const listData = this.props.list.map((item,index)=>{
+        const listData = this.props.listData.map((item,index)=>{
             return <ListItem value={item} key={index} index={index}></ListItem>
         })
         return (
@@ -15,4 +16,9 @@ class List extends React.Component {
         )
     }
 }
-export default List
+
+const mapStateToProps = state => ({
+    listData: state.listData
+})
+
+export default connect(mapStateToProps,null)(List)
