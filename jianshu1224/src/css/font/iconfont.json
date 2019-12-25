@@ -1,0 +1,30 @@
+{
+  "id": "1581933",
+  "name": "简书",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1221178",
+      "name": "放大镜",
+      "font_class": "fangdajing",
+      "unicode": "e6e4",
+      "unicode_decimal": 59108
+    },
+    {
+      "icon_id": "1621077",
+      "name": "Aa",
+      "font_class": "Aa",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "6827471",
+      "name": "羽毛笔",
+      "font_class": "yumaobi",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    }
+  ]
+}
