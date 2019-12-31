@@ -44,6 +44,43 @@ export const NavItem = styled.div`
         }
     }
 `
+export const SearchWrapper = styled.div`
+    position: relative;
+    display: inline-block;
+`
+export const HotSearch = styled.div`
+    width: 240px;
+    color: #aaa;
+    padding: 15px 10px 0 10px;
+    position: absolute;
+    top: 58px;
+    left: 21px;
+    background: #fff;
+    box-shadow: 0px 0px 4px 1px #ddd;
+    .title {
+        color: #333;
+        font-size: 14px;
+        margin-bottom: 15px;
+        span {
+            float: right;
+            font-size: 12px;
+        }
+    }
+    ul {
+        li {
+            font-size: 12px;
+            display: inline-block;
+            margin: 0 10px 10px 0;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            a {
+                color: #aaa;
+            }
+        }
+    }
+`
+
 export const Input = styled.input.attrs({
     placeholder: '搜索'
 })`

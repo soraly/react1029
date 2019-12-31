@@ -1,7 +1,8 @@
 import { types } from './index'
 
 const initState = {
-    focused: false
+    focused: false,
+    searchList: []
 }
 
 //此处可以引用immutable确保state不会改变，state.set(xxx)可以返回一个全新的对象。但是使用成本大，懒得用。
@@ -14,8 +15,10 @@ export default (state = initState, action) => {
         case types.INPUT_BLUR:
             newState.focused = false;
             break;
+        case types.LIST_DATA:
+            newState.searchList = action.data.data;
+            break;
         default:
-
     }
     return newState
 }
