@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "data": [
+        { "id": 1, "url": "https://school.igrow.cn/assets/img/support/product4_icon1.png","title": "语文" },
+        { "id": 2, "url": "https://school.igrow.cn/assets/img/support/product4_icon1.png","title": "高考" },
+        { "id": 3, "url": "https://school.igrow.cn/assets/img/support/product4_icon1.png","title": "树脂胶元" },
+        { "id": 4, "url": "https://school.igrow.cn/assets/img/support/product4_icon1.png","title": "风扇" },
+        { "id": 5, "url": "https://school.igrow.cn/assets/img/support/product4_icon1.png","title": "高速费" }
+    ]
+}
