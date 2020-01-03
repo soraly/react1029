@@ -22,8 +22,6 @@ class mainList extends Component {
                         </div>
                     </div>
                 ))}
-
-
             </div>
         )
     }
