@@ -5,8 +5,13 @@ import Recommend from './components/recommend'
 import Writer from './components/writer'
 import Qrcode from './components/qrcode'
 import './style.scss'
+import { connect } from 'react-redux'
+import {actions} from './store'
 
-export default class Home extends Component {
+class Home extends Component {
+    componentDidMount(){
+        this.props.getTopic();
+    }
     render() {
         return (
             <div className="container">
@@ -33,3 +38,13 @@ export default class Home extends Component {
         )
     }
 }
+
+const mapDispatch = ()=>{
+    return {
+        getTopic(dispatch){
+            dispatch(actions.getTopicAction())
+        }
+    }
+}
+
+export default connect(null)(Home)
