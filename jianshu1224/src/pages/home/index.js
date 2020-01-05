@@ -11,6 +11,8 @@ import {actions} from './store'
 class Home extends Component {
     componentDidMount(){
         this.props.getTopic();
+        this.props.getMainList();
+        this.props.getWriter();
     }
     render() {
         return (
@@ -39,12 +41,18 @@ class Home extends Component {
     }
 }
 
-const mapDispatch = ()=>{
+const mapDispatch = (dispatch)=>{
     return {
-        getTopic(dispatch){
+        getTopic(){
             dispatch(actions.getTopicAction())
+        },
+        getMainList(){
+            dispatch(actions.getMainListAction())
+        },
+        getWriter(){
+            dispatch(actions.getWriterAction())
         }
     }
 }
 
-export default connect(null)(Home)
+export default connect(null,mapDispatch)(Home)

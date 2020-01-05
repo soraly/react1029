@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import store from '../../../store'
-import { actions } from '../store'
 
 class mainList extends Component {
-    componentDidMount() {
-        store.dispatch(actions.getMainListAction())
-    }
     render() {
         const { mainList } = this.props;
         return (

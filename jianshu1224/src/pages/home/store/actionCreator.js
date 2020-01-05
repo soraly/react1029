@@ -13,6 +13,12 @@ const getMainListSuccess = (data) => {
         data
     }
 }
+const getWriterSuccess = (data) => {
+    return {
+        type: types.WRITER_LIST_SUCCESS,
+        data
+    }
+}
 
 export const getTopicAction = () => {
     return (dispatch) => {
@@ -26,6 +32,14 @@ export const getMainListAction = () => {
     return (dispatch) => {
         axios.get('/oapi/mainlist.json').then(res => {
             dispatch(getMainListSuccess(res.data))
+        })
+    }
+}
+
+export const getWriterAction = () => {
+    return (dispatch) => {
+        axios.get('/oapi/writer.json').then(res => {
+            dispatch(getWriterSuccess(res.data))
         })
     }
 }

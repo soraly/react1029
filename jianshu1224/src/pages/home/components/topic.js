@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import store from '../../../store'
-import {actions} from '../store'
 
 class Topic extends Component {
-    componentDidMount(){
-        store.dispatch(actions.getTopicAction())
-    }
     render() {
         const { topicList } = this.props;
         return (

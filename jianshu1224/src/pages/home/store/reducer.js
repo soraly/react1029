@@ -2,7 +2,8 @@ import { types } from './index'
 
 const initState = {
     topicList: [],
-    mainList: []
+    mainList: [],
+    writerList: []
 }
 export default (state = initState, action) => {
     const newState = JSON.parse(JSON.stringify(state));
@@ -12,6 +13,10 @@ export default (state = initState, action) => {
         break;
         case types.MAIN_LIST_SUCCESS:
             newState.mainList = action.data.data;
+        break;
+        case types.WRITER_LIST_SUCCESS:
+            newState.writerList = action.data.data;
+            console.log(newState.writerList)
         break;
     }
     return newState
