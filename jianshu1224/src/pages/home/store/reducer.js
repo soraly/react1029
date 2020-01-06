@@ -16,7 +16,6 @@ export default (state = initState, action) => {
         break;
         case types.WRITER_LIST_SUCCESS:
             newState.writerList = action.data.data;
-            console.log(newState.writerList)
         break;
     }
     return newState

@@ -23,7 +23,7 @@ const getWriterSuccess = (data) => {
 export const getTopicAction = () => {
     return (dispatch) => {
         axios.get('/oapi/topics.json').then(res => {
-            dispatch(getTopicSuccess(res.data))
+            dispatch(getTopicSuccess(res.data));
         })
     }
 }
