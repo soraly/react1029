@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
  class Writer extends Component {
     render() {
-        console.log(this.props.writerList)
         return (
             <div className="writer">
                 <div className="info">

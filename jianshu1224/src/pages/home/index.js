@@ -6,21 +6,33 @@ import Writer from './components/writer'
 import Qrcode from './components/qrcode'
 import './style.scss'
 import { connect } from 'react-redux'
-import {actions} from './store'
+import { actions } from './store'
 
 class Home extends Component {
-    componentDidMount(){
+    constructor(){
+        super();
+        this.state = {
+            num: 100
+        }
+    }
+    componentDidMount() {
         this.props.getTopic();
         this.props.getMainList();
         this.props.getWriter();
+    }
+    handleClick(){
+        console.log('click');
+        window.onerror = (err)=>{
+            console.log(err,'344')
+        }
     }
     render() {
         return (
             <div className="container">
                 <div className="row">
                     <div className="leftWrapper">
-                        <div className="banner">
-                            <img src="https://upload.jianshu.io/admin_banners/web_images/4860/8aec44af6460ad75f6bb56caa9ab501c0cfb2ba4.png?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540" alt=""/>
+                        <div className="banner" onClick={this.handleClick}>
+                            <img src="https://upload.jianshu.io/admin_banners/web_images/4860/8aec44af6460ad75f6bb56caa9ab501c0cfb2ba4.png?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540" alt="" />
                         </div>
                         <Topic></Topic>
                         <MainList></MainList>
@@ -28,8 +40,8 @@ class Home extends Component {
                     <div className="rightWrapper">
                         <div>
                             <Recommend value={"简书会员"} bg={"#FFB84F"}></Recommend>
-                            <Recommend value={"优选连载"} bg={"#F4E0BD"}></Recommend>
-                            <Recommend value={"简书版权"} bg={"#C1E4DE"}></Recommend>
+                            <Recommend value={"优选连载"} bg={"#F4E0BD"}></Recommend> 
+                            <Recommend value={"简书版权"} bg={"#C1E4DE"}></Recommend> 
                             <Recommend value={"简书大学堂"} bg={"#B7D6EC"}></Recommend>
                         </div>
                         <Qrcode></Qrcode>
@@ -41,18 +53,18 @@ class Home extends Component {
     }
 }
 
-const mapDispatch = (dispatch)=>{
+const mapDispatch = (dispatch) => {
     return {
-        getTopic(){
-            dispatch(actions.getTopicAction())
+        getTopic() {
+            dispatch(actions.getTopicAction());
         },
-        getMainList(){
+        getMainList() {
             dispatch(actions.getMainListAction())
         },
-        getWriter(){
+        getWriter() {
             dispatch(actions.getWriterAction())
         }
     }
 }
 
-export default connect(null,mapDispatch)(Home)
+export default connect(null, mapDispatch)(Home)
