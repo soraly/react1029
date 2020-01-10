@@ -1,38 +1,40 @@
 import React, { Component } from 'react'
 import './style.scss'
 import Top from './components/top'
-import Aside from './components/aside'
 import Main from './components/main'
-import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {actions} from './store'
+import { actions } from './store'
+import Header from '../../components/header'
 
-function Child() {
-    return null
-}
 
 class Detail extends Component {
     componentDidMount() {
-        this.props.getUserInfo()
+        this.props.getUserInfo(this.props.match.params.id);
+        this.props.getDetailArticle(this.props.match.params.id);
     }
     render() {
         return (
-            <div className="detail-container">
-                <div className="leftWrapper">
-                    <Top></Top>
-                    <Main></Main>
-                    <Child></Child>
+            <div>
+                <Header></Header>
+                <div className="detail-container">
+                    <div className="leftWrapper">
+                        <Top></Top>
+                        <Main></Main>
+                    </div>
+                    <div className="rightWrapper"></div>
                 </div>
-                <div className="rightWrapper"></div>
             </div>
         )
     }
 }
 
-const mapDispatch = (dispatch)=>{
+const mapDispatch = (dispatch) => {
     return {
-        getUserInfo(){
-            dispatch(actions.userInfoAction());
+        getUserInfo(id) {
+            dispatch(actions.userInfoAction(id));
+        },
+        getDetailArticle(id) {
+            dispatch(actions.detailArticleAction(id));
         }
     }
 }

@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 
-export default class Top extends Component {
+class Top extends Component {
     render() {
+        const {userInfo} = this.props;
         return (
             <div className="top">
-                <h1>智慧校园，成长档案，智慧班级，班级主页</h1>
+                <h1>{userInfo.title}</h1>
                 <div className="info">
                     <div className="avatar">
-                        <img src="http://upload.jianshu.io/users/upload_avatars/8107105/9d7d7961-1fca-4c23-8196-45e779f5bd09.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp" alt=""/>
+                        <img src={userInfo.avatar} alt=""/>
                     </div>
                     <div>
                         <div className="info-title">
                             <span>
-                                <a href="">一勺美食</a>
+                                <a href="">{userInfo.author}</a>
                             </span>
                             <a href=""></a>
                             <button>
@@ -31,3 +33,11 @@ export default class Top extends Component {
         )
     }
 }
+
+const mapState = (state)=>{
+    return {
+        userInfo: state.detail.userInfo
+    }
+}
+
+export default connect(mapState)(Top)

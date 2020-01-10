@@ -7,6 +7,8 @@ import Qrcode from './components/qrcode'
 import './style.scss'
 import { connect } from 'react-redux'
 import { actions } from './store'
+import Header from '../../components/header'
+
 
 class Home extends Component {
     constructor(){
@@ -28,7 +30,9 @@ class Home extends Component {
     }
     render() {
         return (
-            <div className="container">
+            <div>
+                <Header></Header>
+                <div className="container">
                 <div className="row">
                     <div className="leftWrapper">
                         <div className="banner" onClick={this.handleClick}>
@@ -48,6 +52,7 @@ class Home extends Component {
                         <Writer></Writer>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }
