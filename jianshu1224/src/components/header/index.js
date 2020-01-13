@@ -76,7 +76,7 @@ class Header extends React.Component {
                 <CSSTransition classNames="item" in={focused} timeout={200}>
                     <BtnItem className="sign-up">注册</BtnItem>
                 </CSSTransition>
-                <Login></Login>
+                {this.props.isLogin?<NavItem className="right" onClick={this.props.handleLogout} >退出</NavItem>:<Login></Login>}
                 <NavItem className="right">
                     <span className="iconfont">&#xe636;</span>
                 </NavItem>
@@ -90,7 +90,8 @@ class Header extends React.Component {
 const mapStateToProps = (state) => {
     return {
         focused: state.head.focused, //如果写成immutable，就是state.getIn(['head','focused'])，太麻烦。。。
-        searchList: state.head.searchList
+        searchList: state.head.searchList,
+        isLogin: state.login.isLogin
     }
 }
 
@@ -101,6 +102,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     handleInputBlur() {
         dispatch(actions.getInputBlurAction());
+    },
+    handleLogout(){
+        dispatch({type: "CHANGE_LOGOUT"});
     }
 })
 

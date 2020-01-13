@@ -49,6 +49,13 @@
         }
         div form {
            div.input-item {
+               position: relative;
+               i.iconfont {
+                left: 10px;
+                top: 15px;
+                position: absolute;
+                color: #969696;
+               }
                input {
                    width: 100%;
                    height: 50px;

@@ -8,7 +8,6 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 class App extends React.Component {
   render() {
-    console.log(this.props)
     return (
       <Provider store={store}>
         <BrowserRouter>
