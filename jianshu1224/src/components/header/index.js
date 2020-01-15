@@ -14,7 +14,7 @@ function Login() {
     return (
         <Link to="/login">
             <NavItem className="right">登录</NavItem>
-            </Link>
+        </Link>
     )
 }
 
@@ -76,12 +76,12 @@ class Header extends React.Component {
                 <CSSTransition classNames="item" in={focused} timeout={200}>
                     <BtnItem className="sign-up">注册</BtnItem>
                 </CSSTransition>
-                {this.props.isLogin?<NavItem className="right" onClick={this.props.handleLogout} >退出</NavItem>:<Login></Login>}
+                {this.props.isLogin ? <NavItem className="right" onClick={this.props.handleLogout} >退出</NavItem> : <Login></Login>}
                 <NavItem className="right">
                     <span className="iconfont">&#xe636;</span>
                 </NavItem>
             </div>
-        </HeaderWrapper> )
+        </HeaderWrapper>)
 
 
     }
@@ -103,8 +103,8 @@ const mapDispatchToProps = (dispatch) => ({
     handleInputBlur() {
         dispatch(actions.getInputBlurAction());
     },
-    handleLogout(){
-        dispatch({type: "CHANGE_LOGOUT"});
+    handleLogout() {
+        dispatch({ type: "CHANGE_LOGOUT" });
     }
 })
 
