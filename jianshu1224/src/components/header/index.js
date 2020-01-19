@@ -70,9 +70,12 @@ class Header extends React.Component {
                     </SearchWrapper>
                 </CSSTransition>
 
-                <BtnItem className="write-btn">
-                    <span className="iconfont">&#xe616;</span>
-                    写文章</BtnItem>
+                <Link to="/write">
+                    <BtnItem className="write-btn">
+                        <span className="iconfont">&#xe616;</span>写文章
+                </BtnItem>
+                </Link>
+
                 <CSSTransition classNames="item" in={focused} timeout={200}>
                     <BtnItem className="sign-up">注册</BtnItem>
                 </CSSTransition>
@@ -82,8 +85,6 @@ class Header extends React.Component {
                 </NavItem>
             </div>
         </HeaderWrapper>)
-
-
     }
 }
 
