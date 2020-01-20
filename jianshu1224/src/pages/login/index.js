@@ -33,7 +33,7 @@ class Login extends Component {
                                 <div className="remember">
                                     <span>
                                         <input type="checkbox" />记住我
-                                </span>
+                                    </span>
                                     <a href="">登录遇到问题？</a>
                                 </div>
                                 <div>
