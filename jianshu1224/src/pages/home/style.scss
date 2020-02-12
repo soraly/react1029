@@ -73,6 +73,9 @@
             font-weight: bold;
             margin-bottom: 10px;
             color: #333;
+           &:hover {
+            text-decoration: underline;
+           } 
         }
         p {
             font-size: 14px;
