@@ -1,87 +1,60 @@
 import React from 'react';
-import logo from './logo.svg';
+import store from './store';
 import './App.css';
+import { Input, Button, Icon } from 'antd';
+import 'antd/dist/antd.css';
 
-
-function getArgs (func) {
-  console.log('function '+func.toString(),'func')
-  // First match everything inside the function argument parens.
-  const args = ('function '+func.toString()).match(/function.*?\(([^)]*)\)/)[1]
-  // Split the arguments string into an array comma delimited.
-  console.log(args,'args')
-  return args
-    .split(',')
-    .map(function (arg) {
-      // Ensure no inline comments are parsed and trim the whitespace.
-      return arg.replace(/\/\*.*\*\//, '').trim()
-    })
-    .filter(function (arg) {
-      // Ensure no undefined values are added.
-      return arg
-    })
+function Item(props) {
+  return <div>{props.data}
+    <Icon
+      type="close-circle"
+      onClick={() => props.onDelete(props.index)}
+      style={{ cursor: 'pointer' }} />
+  </div>
 }
 
-function testable(target,name, descriptor){
-  const originFunction = descriptor.value;
-
-  const originFunctionArguments = getArgs(originFunction);
-  console.log(originFunctionArguments,'originFunctionArguments')
-  descriptor.value = function () {
-    let newFunctionAruments = []
-    originFunctionArguments.map(argument => {
-      if (argument[0] === argument[0].toUpperCase()) {
-        let bean = void 0
-        if (argument == 'Link') {
-          bean = 'this is link func'
-        } else {
-          bean = 'this is age func'
-        }
-        bean && newFunctionAruments.push(bean)
-      }
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = store.getState();
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleBtnClick = this.handleBtnClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleStoreChange = this.handleStoreChange.bind(this);
+    store.subscribe(()=>{
+      this.handleStoreChange();
     })
-    console.log(newFunctionAruments,'newFunctionAruments')
-    if (arguments.length) {
-      newFunctionAruments = [...newFunctionAruments, ...Array.from(arguments)]
-    }
-    return originFunction.apply(this, newFunctionAruments)
   }
-  
-  return descriptor
-
-}
-
-class Lzx {
-  constructor(){
-    this.sayHello('xixi')
+  componentDidMount(){
+    
   }
-
-  @testable
-  sayHello(Link,Age,other){
-    console.log(Link,Age,'Link,age');
-    console.log(other,'other')
+  handleStoreChange(){
+    this.setState(store.getState());
   }
-}
-var xiang = new Lzx()
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  handleInputChange(event) {
+    this.setState({ inputVal: event.target.value });
+  }
+  handleBtnClick() {
+    store.dispatch({type:'ADD',value: this.state.inputVal});
+  }
+  handleDelete(index) {
+    var newList = JSON.parse(JSON.stringify(this.state.list));
+    newList.splice(index, 1);
+    this.setState({ list: newList })
+  }
+  render() {
+    return (
+      <div className="container">
+        <Input style={{ width: "200px" }} onChange={this.handleInputChange} value={this.state.inputVal}></Input>
+        <Button type='primary' onClick={this.handleBtnClick} style={{ marginLeft: 10 }}>提交</Button>
+        <div>
+          {this.state.list.map((item, index) => {
+            return <Item data={item} key={item} index={index} onDelete={this.handleDelete}></Item>
+          })}
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
