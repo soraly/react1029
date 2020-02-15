@@ -10,6 +10,9 @@ export default (state = initState, action) => {
             newState.list.push(action.value);
             newState.inputVal = '';
         break;  
+        case 'DELETE':
+            newState.list.splice(action.index, 1);
+        break;  
     }
     return newState
 }

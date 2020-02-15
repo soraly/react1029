@@ -3,6 +3,8 @@ import store from './store';
 import './App.css';
 import { Input, Button, Icon } from 'antd';
 import 'antd/dist/antd.css';
+import * as actions from './store/actionCreator.js'
+import NewsList from './components/List'
 
 function Item(props) {
   return <div>{props.data}
@@ -16,20 +18,18 @@ function Item(props) {
 class App extends React.Component {
   constructor() {
     super();
-    this.state = store.getState();
+    this.state = store.getState().home;
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleBtnClick = this.handleBtnClick.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleStoreChange = this.handleStoreChange.bind(this);
-    store.subscribe(()=>{
-      this.handleStoreChange();
-    })
+    store.subscribe(this.handleStoreChange);
   }
   componentDidMount(){
     
   }
   handleStoreChange(){
-    this.setState(store.getState());
+    this.setState(store.getState().home);
   }
   handleInputChange(event) {
     this.setState({ inputVal: event.target.value });
@@ -38,9 +38,8 @@ class App extends React.Component {
     store.dispatch({type:'ADD',value: this.state.inputVal});
   }
   handleDelete(index) {
-    var newList = JSON.parse(JSON.stringify(this.state.list));
-    newList.splice(index, 1);
-    this.setState({ list: newList })
+    const action = actions.getDeleteAction(index);
+    store.dispatch(action);
   }
   render() {
     return (
@@ -52,6 +51,7 @@ class App extends React.Component {
             return <Item data={item} key={item} index={index} onDelete={this.handleDelete}></Item>
           })}
         </div>
+        <NewsList></NewsList>
       </div>
     )
   }

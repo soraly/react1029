@@ -14,11 +14,9 @@ serviceWorker.unregister();
 
 
 function getArgs (func) {
-    console.log('function '+func.toString(),'func')
     // First match everything inside the function argument parens.
     const args = ('function '+func.toString()).match(/function.*?\(([^)]*)\)/)[1]
     // Split the arguments string into an array comma delimited.
-    console.log(args,'args')
     return args
       .split(',')
       .map(function (arg) {
@@ -65,7 +63,7 @@ function getArgs (func) {
   
     @testable
     sayHello(Link,Age,other){
-      console.log(Link,Age,'Link,age');
+      
     }
   }
   var xiang = new Lzx()
