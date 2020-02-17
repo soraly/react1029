@@ -5,6 +5,7 @@ import { Input, Button, Icon } from 'antd';
 import 'antd/dist/antd.css';
 import * as actions from './store/actionCreator.js'
 import NewsList from './components/List'
+import Mytitle from './components/Title'
 
 function Item(props) {
   return <div>{props.data}
@@ -24,9 +25,6 @@ class App extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleStoreChange = this.handleStoreChange.bind(this);
     store.subscribe(this.handleStoreChange);
-  }
-  componentDidMount(){
-    
   }
   handleStoreChange(){
     this.setState(store.getState().home);
@@ -52,6 +50,7 @@ class App extends React.Component {
           })}
         </div>
         <NewsList></NewsList>
+        <Mytitle />
       </div>
     )
   }
