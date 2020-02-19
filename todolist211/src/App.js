@@ -42,6 +42,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
+        {/* next: 增加编辑和查找功能*/}
         <Input style={{ width: "200px" }} onChange={this.handleInputChange} value={this.state.inputVal}></Input>
         <Button type='primary' onClick={this.handleBtnClick} style={{ marginLeft: 10 }}>提交</Button>
         <div>
