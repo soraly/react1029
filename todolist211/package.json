@@ -82,10 +82,11 @@
     ]
   },
   "devDependencies": {
-    "antd": "^3.26.9",
-    "react-redux": "^7.1.3",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "antd": "",
+    "axios": "",
+    "react-redux": "",
+    "redux": "",
+    "redux-thunk": ""
   },
   "jest": {
     "roots": [
