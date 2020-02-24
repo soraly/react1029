@@ -13,6 +13,10 @@ export default (state = initState, action) => {
         case 'DELETE':
             newState.list.splice(action.index, 1);
         break;  
+        case 'UPDATE':
+            newState.list[action.value.index] = action.value.value;
+            console.log(newState.list,'newState.list')
+        break;  
         default:
     }
     return newState

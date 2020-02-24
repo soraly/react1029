@@ -11,11 +11,12 @@ import { BrowserRouter, Link, Route } from 'react-router-dom'
 const { TabPane } = Tabs;
 
 function Item(props) {
-  return <div>{props.data}
+  return <div>
+    <input type="text"  value={props.data} onChange={(e) => props.onDataChange(e, props.index)} />
     <Icon
       type="close-circle"
       onClick={() => props.onDelete(props.index)}
-      style={{ cursor: 'pointer', marginLeft: '5px', verticalAlign: 'middle'}} />
+      style={{ cursor: 'pointer', marginLeft: '5px', verticalAlign: 'middle' }} />
   </div>
 }
 
@@ -28,6 +29,7 @@ class App extends React.Component {
     this.handleBtnClick = this.handleBtnClick.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleStoreChange = this.handleStoreChange.bind(this);
+    this.handleDataChange = this.handleDataChange.bind(this);
     store.subscribe(this.handleStoreChange);
   }
   handleStoreChange() {
@@ -36,11 +38,15 @@ class App extends React.Component {
   handleInputChange(event) {
     this.setState({ inputVal: event.target.value });
   }
+  handleDataChange(event, index) {
+    const action = actions.getUpdateAction({ index, value: event.target.value });
+    store.dispatch(action);
+  }
   handleBtnClick() {
-    if(this.state.inputVal){
+    if (this.state.inputVal) {
       store.dispatch({ type: 'ADD', value: this.state.inputVal });
-    }else {
-      message.warning('内容不能为空',1)
+    } else {
+      message.warning('内容不能为空', 1)
     }
   }
   handleDelete(index) {
@@ -50,7 +56,7 @@ class App extends React.Component {
   callback() {
 
   }
-  handleClose(){
+  handleClose() {
     console.log('close done..')
   }
   render() {
@@ -61,9 +67,9 @@ class App extends React.Component {
             <TabPane tab="Todolist" key="1">
               <Input style={{ width: "200px" }} onChange={this.handleInputChange} value={this.state.inputVal}></Input>
               <Button type='primary' onClick={this.handleBtnClick} style={{ marginLeft: 10 }}>提交</Button>
-              <div style={{width: '300px'}}>
+              <div style={{ width: '300px' }}>
                 <List itemLayout="horizontal" dataSource={this.state.list} renderItem={(item, index) => <List.Item>
-                  <Item data={item} key={item} index={index} onDelete={this.handleDelete}></Item>
+                  <Item data={item} key={item} index={index} onDelete={this.handleDelete} onDataChange={this.handleDataChange}></Item>
                 </List.Item>}></List>
               </div>
             </TabPane>
