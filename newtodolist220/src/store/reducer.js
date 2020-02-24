@@ -13,6 +13,7 @@ export default (state = initState, action) => {
         case 'DELETE':
             newState.list.splice(action.index, 1);
         break;  
+        default:
     }
     return newState
 }

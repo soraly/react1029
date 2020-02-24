@@ -29,16 +29,16 @@ function getArgs (func) {
       })
   }
   
-  function testable(target,name, descriptor){
+  function testable(target, name, descriptor){
     const originFunction = descriptor.value;
   
     const originFunctionArguments = getArgs(originFunction);
     descriptor.value = function () {
       let newFunctionAruments = []
-      originFunctionArguments.map(argument => {
+      originFunctionArguments.forEach(argument => {
         if (argument[0] === argument[0].toUpperCase()) {
           let bean = void 0
-          if (argument == 'Link') {
+          if (argument === 'Link') {
             bean = 'this is link func'
           } else {
             bean = 'this is age func'
@@ -67,3 +67,4 @@ function getArgs (func) {
     }
   }
   var xiang = new Lzx()
+  console.log(xiang)

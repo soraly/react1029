@@ -12,6 +12,6 @@ code {
     monospace;
 }
 
-.container {
+.header, .container {
   padding: 10px;
 }
